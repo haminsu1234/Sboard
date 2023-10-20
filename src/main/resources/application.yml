@@ -1,0 +1,53 @@
+jwt:
+    issuer: ainu90@gmail.com
+    secret: '6Qj2b7bj3m7zUAhEFnqB48J6tXqDo7tK '
+logging:
+    file:
+        name: log/Sboard.log
+    level:
+        jdbc:
+            connection: info
+            sqlonly: info
+            sqltiming: info
+        org:
+            hibernate: info
+            springframework:
+                security: info
+        root: info
+server:
+    servlet:
+        context-path: /
+spring:
+    datasource:
+        driver-class-name: com.mysql.cj.jdbc.Driver
+        password: Chzhdndb!2
+        url: jdbc:mysql://3.37.89.107:3306/Jboard
+        username: root
+    devtools:
+        livereload:
+            enabled: true
+        restart:
+            enabled: true
+    jpa:
+        database: mysql
+        hibernate:
+            ddl-auto: update
+            naming:
+                physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
+        properties:
+            hibernate:
+                format_sql: true
+                show_sql: true
+                use_sql_comments: true
+    security:
+        user:
+            name: user
+            password: 1234
+    thymeleaf:
+        cache: false
+        prefix: classpath:/templates
+
+    servlet:
+        multipart:
+            location: src/main/resources/static/file
+            max-file-size: 10MB

@@ -1,0 +1,72 @@
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.thymeleaf.org/"
+      layout:decorate="/index.html"
+     >
+
+                <div class="sboard-list" layout:fragment="content">
+                    <div class="panel panel-default">
+
+                        <!-- /.panel-heading -->
+                        <div class="panel-body">
+                            <div class="table-responsive">
+                                <table class="table table-hover">
+                                    <thead>
+                                    <tr>
+                                        <th>번호</th>
+                                        <th>제목</th>
+                                        <th>글쓴이</th>
+                                        <th>조회수</th>
+                                        <th>등록일</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                    <tr th:each="article, loop : ${articles.dtoList}"
+                                    >
+                                        <!--th:with="var=${#numbers.sequence(articles.start,articles.end)}"-->
+                                        <td th:text="${articles.getTotal()-(articles.getPg()*articles.size)-loop.index+10}"></td>
+                                        <td>
+                                            <a th:text="${article.title}"></a>
+                                        </td>
+                                        <td th:text="${article.writer}"></td>
+                                        <td th:text="${article.hit}"></td>
+                                        <td th:text="${article.rdate}"></td>
+                                    </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                            <!-- /.table-responsive -->
+                        </div>
+                        <!-- /.panel-body -->
+                    </div>
+                    <!-- /.panel -->
+                    <div class="text-right">
+                        <a th:href="@{/article/write(cate=${articles.cate})}" class="btn btn-primary">글쓰기</a>
+                    </div>
+                    <div class="text-center">
+                        <ul class="pagination">
+
+
+                            <li th:if="${articles.prev}" class="paginate_button previous" aria-controls="dataTables-example" tabindex="0" id="dataTables-example_previous">
+                                <a th:href="@{/article/list(cate=${articles.cate},pg=1)}">처음</a>
+                                <a th:href="@{/article/list(cate=${articles.cate},pg=${articles.start})}">이전</a>
+
+                            </li>
+
+                            <!-- 토탈페이지가 있으면 라스트 스타트도있나?-->
+                            <li     th:each="num: ${#numbers.sequence(articles.start,articles.end)}"
+                                    class="paginate_button "
+                                    aria-controls="dataTables-example"
+                                    tabindex="0">
+                                <a th:href="@{/article/list(cate=${articles.cate},pg=${num})}">[[${num}]]</a>
+                            </li>
+
+
+                            <li th:if="${articles.next}" class="paginate_button next" aria-controls="dataTables-example" tabindex="0" id="dataTables-example_next">
+                                <a th:href="@{/article/list(cate=${articles.cate},pg=${articles.end+1})}">다음</a>
+                                <a th:href="@{/article/list(cate=${articles.cate},pg=${articles.getTotal()/10})}">마지막으로</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+</html>
