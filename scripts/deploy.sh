@@ -1,5 +1,6 @@
 #!/bin/bash
 
+
 #/lotteon/scripts/deploy.sh
 PROJECT_NAME="Sboard"
 DEPLOY_LOG="/home/$PROJECT_NAME/deploy.log"
