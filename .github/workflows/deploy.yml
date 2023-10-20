@@ -15,7 +15,8 @@ env:
   AWS_REGION: ap-northeast-2
   S3_BUCKET_NAME: western-s3-bucket-github-actions
   CODE_DEPLOY_APPLICATION_NAME: western-codedeploy-app
-  CODE_DEPLOY_DEPLOYMENT_GROUP_NAME: western-codedeploy-deploy-group
+  CODE_DEPLOY_DEPLOYMENT_GROUP_NAME: western-codedepoly-deploy-group
+  
   
 # workflow는 한개 이상의 job을 가지며, 각 job은 여러 step에 따라 단계를 나눌 수 있습니다.
 jobs:
