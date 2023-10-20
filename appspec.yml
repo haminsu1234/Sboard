@@ -4,7 +4,7 @@ version: 0.1
 os: linux
 
 env:  
-  PROJECT_NAME: lotteon
+  PROJECT_NAME: Sboard
   
 # S3에 있는 zip 파일이 EC2에 배포될 위치를 지정
 files:
